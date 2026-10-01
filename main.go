@@ -12,6 +12,9 @@ import (
 	// "flag"
 )
 
+
+	var dbPath = "./tasks.db"
+
 type Task struct {
 	ID  int
 	Title string
@@ -22,7 +25,7 @@ type Task struct {
 }
 
 func initDB() *sql.DB {
-	db, err := sql.Open("sqlite", "./tasks.db")
+	db, err := sql.Open("sqlite", dbPath)
 	if err != nil {
 		panic(err)
 	}
@@ -105,7 +108,7 @@ func main() {
 
 		id, err := strconv.Atoi(os.Args[2])
 		if err != nil {
-			fmt.Printf("Invalid input for ID: '%s'\n Values must be in integer", id)
+			fmt.Printf("Invalid input for ID: '%d'\n Values must be in integer", id)
 		}
 
 		DeleteTask(id)
