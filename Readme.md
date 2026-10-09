@@ -98,6 +98,10 @@ go run . list "In progress"
 
 ```
 
+```bash
+go run . list "Done"
+```
+
 ### 3. Update Task Status
 
 Update the status of an existing task using its ID:
@@ -161,7 +165,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     description TEXT,
-    status TEXT NOT NULL DEFAULT "pending",
+    status TEXT NOT NULL DEFAULT "Todo",
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
